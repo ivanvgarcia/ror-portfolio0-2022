@@ -1,0 +1,18 @@
+%h1.text-center Projects
+- if @projects.empty?
+  %p No projects found.
+- else
+  %div.grid.grid-cols-full.md:grid-cols-2.my-4.gap-4
+    - @projects.each do |project|
+      = link_to project_path(project.id) do
+        .card.w-full.bg-red-500.text-white.rounded.shadow-md
+          %div.p-6
+            = project.name
+            = project.description
+          = image_tag(project.image)
+
+= link_to new_project_path do
+  .bg-blue-500.p-2.rounded.shadow.text-white.w-24
+    New Project
+
+= paginate @projects

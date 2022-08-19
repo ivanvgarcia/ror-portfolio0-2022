@@ -1,0 +1,17 @@
+%h1 New Project
+
+= form_with model: @project do |f|
+  - if @project.errors.any?
+    - @project.errors.full_messages.each do |message|
+      = message
+  %div
+    = f.label :name
+    = f.text_field :name
+  %div
+    = f.label :description
+    = f.rich_text_area :description
+  %div
+    = f.label :image
+    = f.file_field :image
+  %div
+    = f.submit
