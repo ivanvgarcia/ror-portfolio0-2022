@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Rails7VueVite
+    %title Ivan Garcia's Portfolio & Blog
     %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
     = csrf_meta_tags
     = csp_meta_tag
@@ -19,4 +19,8 @@
       Visit the guide for more information: https://vite-ruby.netlify.app/guide/rails
   %body
     = render 'shared/header'
+    - if notice
+      %p.alert.alert-success= notice
+    - if alert
+      %p.alert.alert-danger= alert
     %main.container.mx-auto.px-5.flex.flex-col= yield

@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource except: [:index, :show]
 
   def index
     @projects = Project.page(params[:page]).per(10)
@@ -30,10 +30,6 @@ class ProjectsController < ApplicationController
     @project.destroy
 
     redirect_to projects_path
-  end
-
-  def set_project
-    @project = Project.find(params[:id])
   end
 
   def project_params

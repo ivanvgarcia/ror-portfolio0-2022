@@ -39,6 +39,7 @@ gem "kaminari"
 
 gem "aws-sdk-s3", require: false
 
+gem 'cancancan'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -72,3 +73,5 @@ gem "vite_rails"
 gem "vite_ruby"
 gem "image_processing", "~> 1.2"
 gem "annotate", group: :development
+
+gem "devise", "~> 4.8"
