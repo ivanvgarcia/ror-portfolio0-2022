@@ -20,8 +20,8 @@
   %body.h-full
     = render 'shared/header'
     - if notice
-      %p.alert.alert-success= notice
+      = render 'shared/alert', type: :success, message: notice
     - if alert
-      %p.alert.alert-danger= alert
-    %main.h-full= yield
+      = render 'shared/alert', type: :error, message: alert
+    %main{class: 'h-[calc(100%-74px)]'}= yield
     = render 'shared/footer'

@@ -39,7 +39,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :role, :inclusion => {:in => ROLES}
+  validates :role, :inclusion => {:in => ROLES}, allow_nil: true
+
+  validates :first_name, :last_name, presence: true
 
   has_one_attached :avatar
 
