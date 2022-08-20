@@ -85,3 +85,22 @@ img, svg {
   width: 95%;
   @apply mx-auto py-10;
 }
+
+.btn {
+  @apply inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-700 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500
+}
+
+button {
+  .enabled-button {
+    display: initial;
+  }
+
+  .disabled-button {
+    display: none;
+  }
+
+  &[disabled] {
+    .enabled-button {display:none}
+    .disabled-button {display: initial}
+  }
+}

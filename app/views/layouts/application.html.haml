@@ -1,5 +1,5 @@
 !!!
-%html
+%html.h-full
   %head
     %title Ivan Garcia's Portfolio & Blog
     %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
@@ -17,10 +17,11 @@
       vite_javascript_tag 'application.jsx'
 
       Visit the guide for more information: https://vite-ruby.netlify.app/guide/rails
-  %body
+  %body.h-full
     = render 'shared/header'
     - if notice
       %p.alert.alert-success= notice
     - if alert
       %p.alert.alert-danger= alert
-    %main.container.mx-auto.px-5.flex.flex-col= yield
+    %main.h-full= yield
+    = render 'shared/footer'
