@@ -11,6 +11,8 @@
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  failed_attempts        :integer          default(0), not null
+#  first_name             :string
+#  last_name              :string
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string
 #  locked_at              :datetime
@@ -38,4 +40,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :role, :inclusion => {:in => ROLES}
+
+  has_one_attached :avatar
+
+  def name
+    [first_name, last_name].select(&:present?).join(' ').titleize
+  end
 end

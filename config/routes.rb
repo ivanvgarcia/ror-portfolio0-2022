@@ -12,4 +12,8 @@ Rails.application.routes.draw do
   match "/500", to: "errors#internal_server_error", via: :all
 
   resources :projects
+
+  scope module: :blog, path: :blog do
+    resources :posts
+  end
 end

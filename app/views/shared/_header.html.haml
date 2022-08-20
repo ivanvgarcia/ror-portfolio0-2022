@@ -7,7 +7,7 @@
           %img.h-10.w-auto{:alt => "", :src => "https://tailwindui.com/img/logos/workflow-mark.svg?color=white"}/
         .hidden.ml-10.space-x-8.lg:block
           = link_to 'Home', root_path, class: 'text-base font-medium text-white hover:text-indigo-50'
-          = link_to 'Blog', root_path, class: 'text-base font-medium text-white hover:text-indigo-50'
+          = link_to 'Blog', posts_path, class: 'text-base font-medium text-white hover:text-indigo-50'
           = link_to 'About', root_path, class: 'text-base font-medium text-white hover:text-indigo-50'
       - if user_signed_in?
         .ml-10.space-x-4
