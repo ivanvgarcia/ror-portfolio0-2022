@@ -19,7 +19,7 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
-#  role                   :string
+#  role                   :string           default("student")
 #  sign_in_count          :integer          default(0), not null
 #  unconfirmed_email      :string
 #  unlock_token           :string
@@ -32,7 +32,7 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
-  ROLES = %w(admin moderator author banned)
+  ROLES = %w(admin moderator author student)
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -44,6 +44,10 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence: true
 
   has_one_attached :avatar
+
+  has_many :comments, dependent: :destroy
+
+  has_many :posts, dependent: :destroy
 
   def name
     [first_name, last_name].select(&:present?).join(' ').titleize

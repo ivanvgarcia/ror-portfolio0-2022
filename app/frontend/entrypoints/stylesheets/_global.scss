@@ -35,19 +35,34 @@ p {
   margin-bottom: 10px;
 }
 
-h1, h2, h3, h4, h5, h6, button, a, label{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+a,
+label {
   @apply font-sans;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   @apply leading-tight;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   @apply font-bold;
 }
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 767px) {
   h1 {
     font-size: 2em;
   }
@@ -69,7 +84,8 @@ h1, h2, h3 {
   }
 }
 
-img, svg {
+img,
+svg {
   @apply w-full h-auto;
 }
 
@@ -82,12 +98,11 @@ img, svg {
 }
 
 .container {
-  width: 95%;
-  @apply mx-auto py-10;
+  @apply max-w-7xl mx-auto sm:px-6 lg:px-8;
 }
 
 .btn {
-  @apply inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-700 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500
+  @apply inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-700 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500;
 }
 
 button {
@@ -100,7 +115,24 @@ button {
   }
 
   &[disabled] {
-    .enabled-button {display:none}
-    .disabled-button {display: initial}
+    .enabled-button {
+      display: none;
+    }
+    .disabled-button {
+      display: initial;
+    }
   }
+}
+
+// FORMS
+.form {
+  @apply space-y-3;
+}
+
+.label {
+  @apply block text-sm font-medium text-gray-700;
+}
+
+.input {
+  @apply shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md;
 }

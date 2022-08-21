@@ -1,1 +1,222 @@
-<h1>Welcome to Blog</h1>
+.max-w-3xl.mx-auto.px-4.sm:px-6.lg:max-w-7xl.lg:px-8
+  %h1.sr-only Profile
+  / Main 3 column grid
+  .grid.grid-cols-1.gap-4.items-start.lg:grid-cols-3.lg:gap-8
+    / Left column
+    .grid.grid-cols-1.gap-4.lg:col-span-2
+      / Welcome panel
+      -if user_signed_in?
+        %section{"aria-labelledby" => "profile-overview-title"}
+          .rounded-lg.bg-white.overflow-hidden.shadow
+            %h2#profile-overview-title.sr-only Profile Overview
+            .bg-white.p-6
+              .sm:flex.sm:items-center.sm:justify-between
+                .sm:flex.sm:space-x-5
+                  .flex-shrink-0
+                    .inline-block.relative
+                      = image_tag(current_user.avatar, class: 'h-16 w-16 rounded-full')
+                      .span.absolute.bottom-0.right-0.block.h-4.w-4.rounded-full.ring-2.ring-white.bg-green-400
+                  .mt-4.text-center.sm:mt-0.sm:pt-1.sm:text-left
+                    %p.text-sm.font-medium.text-gray-600 Welcome back,
+                    %p.text-xl.font-bold.text-gray-900.sm:text-2xl= current_user.name
+                    %p.text-sm.font-medium.text-gray-600 Software Engineer
+                .mt-5.flex.justify-center.sm:mt-0.gap-2
+                  = link_to 'Create Post', new_post_path, class: 'flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-white bg-red-700 hover:bg-gray-50 hover:text-red-700'
+                  = link_to 'View Profile', edit_user_registration_path	, class: 'flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-white bg-red-700 hover:bg-gray-50 hover:text-red-700'
+            .border-t.border-gray-200.bg-gray-50.grid.grid-cols-1.divide-y.divide-gray-200.sm:grid-cols-3.sm:divide-y-0.sm:divide-x
+              .px-6.py-5.text-sm.font-medium.text-center
+                %span.text-gray-900 12
+                %span.text-gray-600 Vacation days left
+              .px-6.py-5.text-sm.font-medium.text-center
+                %span.text-gray-900 4
+                %span.text-gray-600 Sick days left
+              .px-6.py-5.text-sm.font-medium.text-center
+                %span.text-gray-900 2
+                %span.text-gray-600 Personal days left
+      / Actions panel
+      %section{"aria-labelledby" => "quick-links-title"}
+        .rounded-lg.bg-gray-200.overflow-hidden.shadow.divide-y.divide-gray-200.sm:divide-y-0.sm:grid.sm:grid-cols-2.sm:gap-px
+          %h2#quick-links-title.sr-only Quick links
+          .rounded-tl-lg.rounded-tr-lg.sm:rounded-tr-none.relative.group.bg-white.p-6.focus-within:ring-2.focus-within:ring-inset.focus-within:ring-cyan-500
+            %div
+              %span.rounded-lg.inline-flex.p-3.bg-teal-50.text-teal-700.ring-4.ring-white
+                / Heroicon name: outline/clock
+                %svg.h-6.w-6{"aria-hidden" => "true", :fill => "none", :stroke => "currentColor", "stroke-width" => "2", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
+                  %path{:d => "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z", "stroke-linecap" => "round", "stroke-linejoin" => "round"}
+            .mt-8
+              %h3.text-lg.font-medium
+                %a.focus:outline-none{:href => "#"}
+                  / Extend touch target to entire panel
+                  %span.absolute.inset-0{"aria-hidden" => "true"}
+                  Request time off
+              %p.mt-2.text-sm.text-gray-500 Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae.
+            %span.pointer-events-none.absolute.top-6.right-6.text-gray-300.group-hover:text-gray-400{"aria-hidden" => "true"}
+              %svg.h-6.w-6{:fill => "currentColor", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
+                %path{:d => "M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z"}
+          .sm:rounded-tr-lg.relative.group.bg-white.p-6.focus-within:ring-2.focus-within:ring-inset.focus-within:ring-cyan-500
+            %div
+              %span.rounded-lg.inline-flex.p-3.bg-purple-50.text-purple-700.ring-4.ring-white
+                / Heroicon name: outline/badge-check
+                %svg.h-6.w-6{"aria-hidden" => "true", :fill => "none", :stroke => "currentColor", "stroke-width" => "2", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
+                  %path{:d => "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z", "stroke-linecap" => "round", "stroke-linejoin" => "round"}
+            .mt-8
+              %h3.text-lg.font-medium
+                %a.focus:outline-none{:href => "#"}
+                  / Extend touch target to entire panel
+                  %span.absolute.inset-0{"aria-hidden" => "true"}
+                  Benefits
+              %p.mt-2.text-sm.text-gray-500 Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae.
+            %span.pointer-events-none.absolute.top-6.right-6.text-gray-300.group-hover:text-gray-400{"aria-hidden" => "true"}
+              %svg.h-6.w-6{:fill => "currentColor", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
+                %path{:d => "M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z"}
+          .relative.group.bg-white.p-6.focus-within:ring-2.focus-within:ring-inset.focus-within:ring-cyan-500
+            %div
+              %span.rounded-lg.inline-flex.p-3.bg-sky-50.text-sky-700.ring-4.ring-white
+                / Heroicon name: outline/users
+                %svg.h-6.w-6{"aria-hidden" => "true", :fill => "none", :stroke => "currentColor", "stroke-width" => "2", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
+                  %path{:d => "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z", "stroke-linecap" => "round", "stroke-linejoin" => "round"}
+            .mt-8
+              %h3.text-lg.font-medium
+                %a.focus:outline-none{:href => "#"}
+                  / Extend touch target to entire panel
+                  %span.absolute.inset-0{"aria-hidden" => "true"}
+                  Schedule a one-on-one
+              %p.mt-2.text-sm.text-gray-500 Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae.
+            %span.pointer-events-none.absolute.top-6.right-6.text-gray-300.group-hover:text-gray-400{"aria-hidden" => "true"}
+              %svg.h-6.w-6{:fill => "currentColor", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
+                %path{:d => "M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z"}
+          .relative.group.bg-white.p-6.focus-within:ring-2.focus-within:ring-inset.focus-within:ring-cyan-500
+            %div
+              %span.rounded-lg.inline-flex.p-3.bg-yellow-50.text-yellow-700.ring-4.ring-white
+                / Heroicon name: outline/cash
+                %svg.h-6.w-6{"aria-hidden" => "true", :fill => "none", :stroke => "currentColor", "stroke-width" => "2", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
+                  %path{:d => "M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z", "stroke-linecap" => "round", "stroke-linejoin" => "round"}
+            .mt-8
+              %h3.text-lg.font-medium
+                %a.focus:outline-none{:href => "#"}
+                  / Extend touch target to entire panel
+                  %span.absolute.inset-0{"aria-hidden" => "true"}
+                  Payroll
+              %p.mt-2.text-sm.text-gray-500 Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae.
+            %span.pointer-events-none.absolute.top-6.right-6.text-gray-300.group-hover:text-gray-400{"aria-hidden" => "true"}
+              %svg.h-6.w-6{:fill => "currentColor", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
+                %path{:d => "M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z"}
+          .sm:rounded-bl-lg.relative.group.bg-white.p-6.focus-within:ring-2.focus-within:ring-inset.focus-within:ring-cyan-500
+            %div
+              %span.rounded-lg.inline-flex.p-3.bg-rose-50.text-rose-700.ring-4.ring-white
+                / Heroicon name: outline/receipt-refund
+                %svg.h-6.w-6{"aria-hidden" => "true", :fill => "none", :stroke => "currentColor", "stroke-width" => "2", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
+                  %path{:d => "M16 15v-1a4 4 0 00-4-4H8m0 0l3 3m-3-3l3-3m9 14V5a2 2 0 00-2-2H6a2 2 0 00-2 2v16l4-2 4 2 4-2 4 2z", "stroke-linecap" => "round", "stroke-linejoin" => "round"}
+            .mt-8
+              %h3.text-lg.font-medium
+                %a.focus:outline-none{:href => "#"}
+                  / Extend touch target to entire panel
+                  %span.absolute.inset-0{"aria-hidden" => "true"}
+                  Submit an expense
+              %p.mt-2.text-sm.text-gray-500 Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae.
+            %span.pointer-events-none.absolute.top-6.right-6.text-gray-300.group-hover:text-gray-400{"aria-hidden" => "true"}
+              %svg.h-6.w-6{:fill => "currentColor", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
+                %path{:d => "M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z"}
+          .rounded-bl-lg.rounded-br-lg.sm:rounded-bl-none.relative.group.bg-white.p-6.focus-within:ring-2.focus-within:ring-inset.focus-within:ring-cyan-500
+            %div
+              %span.rounded-lg.inline-flex.p-3.bg-indigo-50.text-indigo-700.ring-4.ring-white
+                / Heroicon name: outline/academic-cap
+                %svg.h-6.w-6{"aria-hidden" => "true", :fill => "none", :stroke => "currentColor", "stroke-width" => "2", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
+                  %path{:d => "M12 14l9-5-9-5-9 5 9 5z"}
+                  %path{:d => "M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"}
+                  %path{:d => "M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222", "stroke-linecap" => "round", "stroke-linejoin" => "round"}
+            .mt-8
+              %h3.text-lg.font-medium
+                %a.focus:outline-none{:href => "#"}
+                  / Extend touch target to entire panel
+                  %span.absolute.inset-0{"aria-hidden" => "true"}
+                  Training
+              %p.mt-2.text-sm.text-gray-500 Doloribus dolores nostrum quia qui natus officia quod et dolorem. Sit repellendus qui ut at blanditiis et quo et molestiae.
+            %span.pointer-events-none.absolute.top-6.right-6.text-gray-300.group-hover:text-gray-400{"aria-hidden" => "true"}
+              %svg.h-6.w-6{:fill => "currentColor", :viewbox => "0 0 24 24", :xmlns => "http://www.w3.org/2000/svg"}
+                %path{:d => "M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z"}
+    / Right column
+    .grid.grid-cols-1.gap-4
+      / Announcements
+      %section{"aria-labelledby" => "announcements-title"}
+        .rounded-lg.bg-white.overflow-hidden.shadow
+          .p-6
+            %h2#announcements-title.text-base.font-medium.text-gray-900 Announcements
+            .flow-root.mt-6
+              %ul.-my-5.divide-y.divide-gray-200{:role => "list"}
+                %li.py-5
+                  .relative.focus-within:ring-2.focus-within:ring-cyan-500
+                    %h3.text-sm.font-semibold.text-gray-800
+                      %a.hover:underline.focus:outline-none{:href => "#"}
+                        / Extend touch target to entire panel
+                        %span.absolute.inset-0{"aria-hidden" => "true"}
+                        Office closed on July 2nd
+                    %p.mt-1.text-sm.text-gray-600.line-clamp-2 Cum qui rem deleniti. Suscipit in dolor veritatis sequi aut. Vero ut earum quis deleniti. Ut a sunt eum cum ut repudiandae possimus. Nihil ex tempora neque cum consectetur dolores.
+                %li.py-5
+                  .relative.focus-within:ring-2.focus-within:ring-cyan-500
+                    %h3.text-sm.font-semibold.text-gray-800
+                      %a.hover:underline.focus:outline-none{:href => "#"}
+                        / Extend touch target to entire panel
+                        %span.absolute.inset-0{"aria-hidden" => "true"}
+                        New password policy
+                    %p.mt-1.text-sm.text-gray-600.line-clamp-2 Alias inventore ut autem optio voluptas et repellendus. Facere totam quaerat quam quo laudantium cumque eaque excepturi vel. Accusamus maxime ipsam reprehenderit rerum id repellendus rerum. Culpa cum vel natus. Est sit autem mollitia.
+                %li.py-5
+                  .relative.focus-within:ring-2.focus-within:ring-cyan-500
+                    %h3.text-sm.font-semibold.text-gray-800
+                      %a.hover:underline.focus:outline-none{:href => "#"}
+                        / Extend touch target to entire panel
+                        %span.absolute.inset-0{"aria-hidden" => "true"}
+                        Office closed on July 2nd
+                    %p.mt-1.text-sm.text-gray-600.line-clamp-2 Tenetur libero voluptatem rerum occaecati qui est molestiae exercitationem. Voluptate quisquam iure assumenda consequatur ex et recusandae. Alias consectetur voluptatibus. Accusamus a ab dicta et. Consequatur quis dignissimos voluptatem nisi.
+            .mt-6
+              %a.w-full.flex.justify-center.items-center.px-4.py-2.border.border-gray-300.shadow-sm.text-sm.font-medium.rounded-md.text-gray-700.bg-white.hover:bg-gray-50{:href => "#"} View all
+      / Recent Hires
+      %section{"aria-labelledby" => "recent-hires-title"}
+        .rounded-lg.bg-white.overflow-hidden.shadow
+          .p-6
+            %h2#recent-hires-title.text-base.font-medium.text-gray-900 Recent Hires
+            .flow-root.mt-6
+              %ul.-my-5.divide-y.divide-gray-200{:role => "list"}
+                %li.py-4
+                  .flex.items-center.space-x-4
+                    .flex-shrink-0
+                      %img.h-8.w-8.rounded-full{:alt => "", :src => "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"}/
+                    .flex-1.min-w-0
+                      %p.text-sm.font-medium.text-gray-900.truncate Leonard Krasner
+                      %p.text-sm.text-gray-500.truncate @leonardkrasner
+                    %div
+                      %a.inline-flex.items-center.shadow-sm.border.border-gray-300.text-sm.leading-5.font-medium.rounded-full.text-gray-700.bg-white.hover:bg-gray-50{:class => "px-2.5 py-0.5", :href => "#"} View
+                %li.py-4
+                  .flex.items-center.space-x-4
+                    .flex-shrink-0
+                      %img.h-8.w-8.rounded-full{:alt => "", :src => "https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"}/
+                    .flex-1.min-w-0
+                      %p.text-sm.font-medium.text-gray-900.truncate Floyd Miles
+                      %p.text-sm.text-gray-500.truncate @floydmiles
+                    %div
+                      %a.inline-flex.items-center.shadow-sm.border.border-gray-300.text-sm.leading-5.font-medium.rounded-full.text-gray-700.bg-white.hover:bg-gray-50{:class => "px-2.5 py-0.5", :href => "#"} View
+                %li.py-4
+                  .flex.items-center.space-x-4
+                    .flex-shrink-0
+                      %img.h-8.w-8.rounded-full{:alt => "", :src => "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"}/
+                    .flex-1.min-w-0
+                      %p.text-sm.font-medium.text-gray-900.truncate Emily Selman
+                      %p.text-sm.text-gray-500.truncate @emilyselman
+                    %div
+                      %a.inline-flex.items-center.shadow-sm.border.border-gray-300.text-sm.leading-5.font-medium.rounded-full.text-gray-700.bg-white.hover:bg-gray-50{:class => "px-2.5 py-0.5", :href => "#"} View
+                %li.py-4
+                  .flex.items-center.space-x-4
+                    .flex-shrink-0
+                      %img.h-8.w-8.rounded-full{:alt => "", :src => "https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"}/
+                    .flex-1.min-w-0
+                      %p.text-sm.font-medium.text-gray-900.truncate Kristin Watson
+                      %p.text-sm.text-gray-500.truncate @kristinwatson
+                    %div
+                      %a.inline-flex.items-center.shadow-sm.border.border-gray-300.text-sm.leading-5.font-medium.rounded-full.text-gray-700.bg-white.hover:bg-gray-50{:class => "px-2.5 py-0.5", :href => "#"} View
+            .mt-6
+              %a.w-full.flex.justify-center.items-center.px-4.py-2.border.border-gray-300.shadow-sm.text-sm.font-medium.rounded-md.text-gray-700.bg-white.hover:bg-gray-50{:href => "#"} View all
+%footer
+.max-w-3xl.mx-auto.px-4.sm:px-6.lg:px-8.lg:max-w-7xl
+  .border-t.border-gray-200.py-8.text-sm.text-gray-500.text-center.sm:text-left
+    %span.block.sm:inline © 2021 Tailwind Labs Inc.
+    %span.block.sm:inline All rights reserved.

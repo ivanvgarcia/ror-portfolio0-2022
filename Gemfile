@@ -41,6 +41,8 @@ gem "aws-sdk-s3", require: false
 
 gem 'cancancan'
 
+gem 'friendly_id', '~> 5.4.0'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

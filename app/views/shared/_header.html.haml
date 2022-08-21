@@ -7,6 +7,7 @@
           %img.h-10.w-auto{:alt => "", :src => "https://tailwindui.com/img/logos/workflow-mark.svg?color=white"}/
         .hidden.ml-10.space-x-8.lg:block
           = link_to 'Home', root_path, class: 'text-base font-medium text-white hover:text-indigo-50'
+          = link_to 'Projects', projects_path, class: 'text-base font-medium text-white hover:text-indigo-50'
           = link_to 'Blog', posts_path, class: 'text-base font-medium text-white hover:text-indigo-50'
           = link_to 'About', root_path, class: 'text-base font-medium text-white hover:text-indigo-50'
       - if user_signed_in?
@@ -18,5 +19,6 @@
           = link_to 'Sign up', new_user_registration_path, class: 'inline-block bg-white py-2 px-4 border border-transparent rounded-md text-base font-medium text-red-700 hover:bg-indigo-50'
     .py-4.flex.flex-wrap.justify-center.space-x-6.lg:hidden
       = link_to 'Home', root_path, class: 'text-base font-medium text-white hover:text-indigo-50'
+      = link_to 'Projects', projects_path, class: 'text-base font-medium text-white hover:text-indigo-50'
       = link_to 'Blog', posts_path, class: 'text-base font-medium text-white hover:text-indigo-50'
       = link_to 'About', root_path, class: 'text-base font-medium text-white hover:text-indigo-50'
