@@ -8,6 +8,7 @@ module Blog
       if @post.save
         redirect_to post_path(@post), notice: 'Post was successfully created.'
       else
+        flash.now[:alert] = 'Post was not created.'
         render :new
       end
     end
@@ -31,7 +32,7 @@ module Blog
     private
 
     def post_params
-      params.require(:post).permit(:title, :body, :image, :excerpt)
+      params.require(:post).permit(:title, :body, :image, :excerpt, :draft)
     end
   end
 end

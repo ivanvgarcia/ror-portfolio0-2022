@@ -7,14 +7,27 @@
         .w-full
           = f.label :title, class: 'label'
           = f.text_field :title, class: 'input', placeholder: 'Title'
+          - if @post.errors[:title].present?
+            %p.mt-2.text-sm.text-red-600= @post.errors[:title].join(', ').capitalize
         .w-full
           = f.label :excerpt, class: 'label'
           = f.text_field :excerpt, class: 'input', placeholder: 'excerpt'
+          - if @post.errors[:excerpt].present?
+            %p.mt-2.text-sm.text-red-600= @post.errors[:excerpt].join(', ').capitalize
         .w-full
           = f.label :image, class:'label'
           = f.file_field :image, class: 'input'
+          - if @post.errors[:image].present?
+            %p.mt-2.text-sm.text-red-600= @post.errors[:image].join(', ').capitalize
         .w-full
           = f.label :body, class:'label'
           = f.rich_text_area :body, class: 'input', placeholder: 'Body'
+          - if @post.errors[:body].present?
+            %p.mt-2.text-sm.text-red-600= @post.errors[:body].join(', ').capitalize
+        .w-full.flex.items-center.gap-2
+          = f.check_box :draft, class: 'checkbox'
+          = f.label :draft, class:'label'
+          - if @post.errors[:draft].present?
+            %p.mt-2.text-sm.text-red-600= @post.errors[:draft].join(', ').capitalize
         .w-full
           = f.submit 'Create Post', class: 'btn btn-primary'

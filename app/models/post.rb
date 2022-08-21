@@ -31,11 +31,19 @@ class Post < ApplicationRecord
 
   validates :title, :body, presence: true
 
-  validates_length_of :excerpt, maximum: 100
+  validate :has_attached_image?
+
+  validates_length_of :excerpt, maximum: 150
 
   def reading_time
     words_per_minute = 150
     text = Nokogiri::HTML(self.body.body.to_html).at('body').inner_text
     (text.scan(/\w+/).length / words_per_minute).to_i
+  end
+
+  def has_attached_image?
+    if !image.attached?
+      errors.add(:image, 'You must upload an image.')
+    end
   end
 end
