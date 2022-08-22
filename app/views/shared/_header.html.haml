@@ -4,12 +4,11 @@
       .flex.items-center
         = link_to root_path do
           %span.sr-only Workflow
-          %img.h-10.w-auto{:alt => "", :src => "https://tailwindui.com/img/logos/workflow-mark.svg?color=white"}/
+          = image_tag("logos/black-white.svg", alt: "logo", class: 'h-14 w-auto')
         .hidden.ml-10.space-x-8.lg:block
           = link_to 'Home', root_path, class: 'text-base font-medium text-white hover:text-indigo-50'
           = link_to 'Projects', projects_path, class: 'text-base font-medium text-white hover:text-indigo-50'
           = link_to 'Blog', posts_path, class: 'text-base font-medium text-white hover:text-indigo-50'
-          = link_to 'About', root_path, class: 'text-base font-medium text-white hover:text-indigo-50'
       - if user_signed_in?
         .ml-10.space-x-4
           = button_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'inline-block bg-gray-500 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75'
@@ -21,4 +20,3 @@
       = link_to 'Home', root_path, class: 'text-base font-medium text-white hover:text-indigo-50'
       = link_to 'Projects', projects_path, class: 'text-base font-medium text-white hover:text-indigo-50'
       = link_to 'Blog', posts_path, class: 'text-base font-medium text-white hover:text-indigo-50'
-      = link_to 'About', root_path, class: 'text-base font-medium text-white hover:text-indigo-50'
