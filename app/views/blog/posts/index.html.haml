@@ -63,7 +63,7 @@
                       .flex.space-x-1.text-sm.text-gray-500
                         %time{:datetime => "2020-03-16"}= post.created_at.to_date.to_formatted_s(:long)
                         %span{"aria-hidden" => "true"} ·
-                        %span 6 min read
+                        %span= pluralize(post.reading_time, 'minute')
 
             = paginate @posts
 
