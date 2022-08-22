@@ -35,7 +35,10 @@ class Post < ApplicationRecord
 
   validates_length_of :excerpt, maximum: 150
 
+  scope :published, -> { where(draft: false) }
+
   def reading_time
+    return 0 if body.blank?
     words_per_minute = 150
     text = Nokogiri::HTML(self.body.body.to_html).at('body').inner_text
     (text.scan(/\w+/).length / words_per_minute).to_i

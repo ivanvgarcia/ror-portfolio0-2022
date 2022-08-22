@@ -2,6 +2,11 @@ module Blog
   class PostsController < Blog::BaseController
     load_and_authorize_resource :find_by => :slug, except: [:index]
 
+    def index
+      @posts = Post.published.page(params[:page]).per(10)
+      @recent_users = User.last(4)
+    end
+
     def create
       @post.author = current_user
 
