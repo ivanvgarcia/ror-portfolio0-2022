@@ -1,0 +1,22 @@
+= link_to link do
+  .flex-shrink-0
+    =image_tag(resource.image.variant(resize: '200x200'))
+  .flex-1.bg-white.p-6.flex.flex-col.justify-between
+    .flex-1
+      %p.text-sm.font-medium.text-indigo-600
+        %a.hover:underline{:href => "#"} Post
+      %a.block.mt-2{:href => "#"}
+        %p.text-xl.font-semibold.text-gray-900= resource.title
+        %p.mt-3.text-base.text-gray-500= resource.excerpt
+    .mt-6.flex.items-center
+      .flex-shrink-0
+        %a{:href => "#"}
+          %span.sr-only= resource.author.name
+          %img.h-10.w-10.rounded-full{:alt => "", :src => "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"}/
+      .ml-3
+        %p.text-sm.font-medium.text-gray-900
+          %a.hover:underline{:href => "#"}= resource.author.name
+        .flex.space-x-1.text-sm.text-gray-500
+          %time{:datetime => "2020-03-16"}= resource.created_at.to_date.to_formatted_s(:long)
+          %span{"aria-hidden" => "true"} ·
+          %span= pluralize(resource.reading_time, 'minute')

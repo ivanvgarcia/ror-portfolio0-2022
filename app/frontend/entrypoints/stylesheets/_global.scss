@@ -1,3 +1,21 @@
+@font-face {
+  font-family: "Montserrat", sans-serif;
+  src: url("@assets/fonts/Montseratt/Montserrat-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter", sans-serif;
+  src: url("@assets/fonts/Inter/Inter-V.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  @apply font-montserrat;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -33,18 +51,6 @@ h6 {
 p {
   font-size: 1em;
   margin-bottom: 10px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-button,
-a,
-label {
-  @apply font-sans;
 }
 
 h1,

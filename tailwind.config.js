@@ -7,6 +7,10 @@ module.exports = {
     "./app/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      inter: ["Inter", "sans-serif"],
+      montserrat: ["Montserrat", "sans-serif"],
+    },
     extend: {},
   },
   plugins: [require("@tailwindcss/forms")],

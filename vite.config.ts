@@ -12,16 +12,16 @@ export default defineConfig({
     alias: [
       {
         find: "@/lib",
-        replacement: path.resolve(__dirname, "./app/frontend/components/lib/")
+        replacement: path.resolve(__dirname, "./app/frontend/components/lib/"),
       },
       {
         find: "@/components",
-        replacement: path.resolve(__dirname, "./app/frontend/components/")
+        replacement: path.resolve(__dirname, "./app/frontend/components/"),
       },
       {
         find: "@/entrypoints",
-        replacement: path.resolve(__dirname, "./app/frontend/entrypoints")
-      }
-    ]
+        replacement: path.resolve(__dirname, "./app/frontend/entrypoints"),
+      },
+    ],
   },
-})
+});
