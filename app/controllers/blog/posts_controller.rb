@@ -1,9 +1,9 @@
 module Blog
   class PostsController < Blog::BaseController
     load_and_authorize_resource :find_by => :slug, except: [:index]
+    before_action  :set_search, only: [:index, :new, :show]
 
     def index
-      @posts = Post.published.page(params[:page]).includes([:author, :rich_text_body]).per(10)
       @recent_users = User.last(4)
     end
 
@@ -35,6 +35,11 @@ module Blog
     end
 
     private
+
+    def set_search
+      @q = Post.ransack(params[:q])
+      @posts = @q.result.includes([:author, :rich_text_body]).page(params[:page])
+    end
 
     def post_params
       params.require(:post).permit(:title, :body, :image, :excerpt, :draft)
