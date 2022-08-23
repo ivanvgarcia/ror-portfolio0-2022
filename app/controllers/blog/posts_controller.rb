@@ -3,7 +3,7 @@ module Blog
     load_and_authorize_resource :find_by => :slug, except: [:index]
 
     def index
-      @posts = Post.published.page(params[:page]).per(10)
+      @posts = Post.published.page(params[:page]).includes([:author, :rich_text_body]).per(10)
       @recent_users = User.last(4)
     end
 

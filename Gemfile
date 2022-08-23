@@ -43,6 +43,8 @@ gem 'cancancan'
 
 gem 'friendly_id', '~> 5.4.0'
 
+gem 'stimulus-rails'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -55,13 +57,11 @@ group :development, :test do
 end
 
 group :development do
-  # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-
-  # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  # gem "rack-mini-profiler"
-
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
+  gem "bullet"
+  gem "rack-mini-profiler"
+  gem 'rspec', '~> 3.5'
+  gem 'any_login', '~> 1.3'
   # gem "spring"
 end
 

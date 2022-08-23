@@ -22,6 +22,11 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@hotwired/stimulus@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@hotwired/stimulus/-/stimulus-3.1.0.tgz#20215251e5afe6e0a3787285181ba1bfc9097df0"
+  integrity sha512-iDMHUhiEJ1xFeicyHcZQQgBzhtk5mPR0QZO3L6wtqzMsJEk2TKECuCQTGKjm+KJTHVY0dKq1dOOAWvODjpd2Mg==
+
 "@humanwhocodes/config-array@^0.10.4":
   version "0.10.4"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.10.4.tgz#01e7366e57d2ad104feea63e72248f22015c520c"
@@ -1205,6 +1210,11 @@ spark-md5@^3.0.1:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/spark-md5/-/spark-md5-3.0.2.tgz#7952c4a30784347abcee73268e473b9c0167e3fc"
   integrity sha512-wcFzz9cDfbuqe0FZzfi2or1sgyIrsDwmPwfZC4hiNidPdPINjeUwNfv5kldczoEAcjl9Y1L3SM7Uz2PUEQzxQw==
+
+stimulus-vite-helpers@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/stimulus-vite-helpers/-/stimulus-vite-helpers-3.0.0.tgz#2cb173a4f411dccb620e34a0cfac41d15de69e63"
+  integrity sha512-MpHGO3rYLhFDDV+j5SaBVTX+A3wpHwapFProhXiY4bZ/pDHWWGGW7eqTKwzlG5DJYncaCd3VBi4RPzgd27IbEw==
 
 strip-ansi@^6.0.1:
   version "6.0.1"

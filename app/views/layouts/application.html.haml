@@ -25,3 +25,5 @@
       = render 'shared/alert', type: :error, message: alert
     %main{class: 'h-[calc(100%-74px)]'}= yield
     = render 'shared/footer'
+
+    = any_login_here if defined?(AnyLogin)
