@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["menuOverlay"];
+  static targets = ["menuOverlay", "dropdown"];
 
   connect() {
     console.log("Hello, Stimulus!", this.element);
@@ -23,5 +23,16 @@ export default class extends Controller {
       "visible",
       "ease-in"
     );
+  }
+
+  toggleDropdown() {
+    [
+      "opacity-100",
+      "visible",
+      "scale-100",
+      "opacity-0",
+      "invisible",
+      "scale-95",
+    ].map((v) => this.dropdownTarget.classList.toggle(v));
   }
 }
