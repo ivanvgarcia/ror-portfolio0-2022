@@ -1,1 +1,11 @@
-%h1= @post.title
+
+.relative.pb-16.bg-white.overflow-hidden
+  .bg-gray-700
+    .max-w-7xl.mx-auto.py-16.px-4.sm:py-24.sm:px-6.lg:px-8.lg:flex.lg:justify-between
+      .max-w-xl
+        %h2.text-4xl.tracking-tight.font-bold.text-white.sm:text-5xl.sm:tracking-tight.lg:text-6xl.lg:tracking-tight= @post.title
+        %p.mt-5.text-xl.text-gray-400= @post.excerpt
+
+  .relative.px-4.sm:px-6.lg:px-8
+    .mt-6.prose.prose-indigo.prose-lg.text-gray-500.mx-auto
+      = @post.body

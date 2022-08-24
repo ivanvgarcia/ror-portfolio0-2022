@@ -49,6 +49,10 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
 
+  def admin?
+    role == 'admin'
+  end
+
   def name
     [first_name, last_name].select(&:present?).join(' ').titleize
   end
