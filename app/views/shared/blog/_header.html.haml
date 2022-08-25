@@ -28,9 +28,9 @@
             To: "transform opacity-0 scale-95"
           .invisible.opacity-0.scale-95.transition-all.ease-in.duration-200.origin-top-right.z-40.absolute.-right-2.mt-2.w-48.rounded-md.shadow-lg.py-1.bg-white.ring-1.ring-black.ring-opacity-5.focus:outline-none{"aria-labelledby" => "user-menu-button", "aria-orientation": "vertical", role: "menu", tabindex: "-1", data: { 'blog--header-target': 'dropdown'} }
             / Active: "bg-gray-100", Not Active: ""
-            %a#user-menu-item-0.block.px-4.py-2.text-sm.text-gray-700{href: "#", role: "menuitem", tabindex: "-1"} Your Profile
-            %a#user-menu-item-1.block.px-4.py-2.text-sm.text-gray-700{href: "#", role: "menuitem", tabindex: "-1"} Settings
-            %a#user-menu-item-2.block.px-4.py-2.text-sm.text-gray-700{href: "#", role: "menuitem", tabindex: "-1"} Sign out
+            = link_to 'Home', root_path, class: 'block px-4 py-2 text-sm text-gray-700', 'aria-current': 'page', role: "menuitem", tabindex: "-1"
+            = link_to 'Projects', projects_path, class: ' block px-4 py-2 text-sm text-gray-700', 'aria-current': 'page', role: "menuitem", tabindex: "-1"
+            = link_to 'Blog', posts_path, class: 'block px-4 py-2 text-sm text-gray-700', 'aria-current': 'page', role: "menuitem", tabindex: "-1"
       .w-full.py-5.lg:border-t.lg:border-white.lg:border-opacity-20
         .lg:grid.lg:grid-cols-3.lg:gap-8.lg:items-center
           / Left nav
@@ -42,15 +42,16 @@
 
         .px-12.lg:px-0
           / Search
-          = search_form_for @q do |f|
-            .max-w-xs.mx-auto.w-full.lg:max-w-md
-              = f.label :title_or_slug_or_excerpt_cont, class: 'sr-only'
-              .relative.text-white.focus-within:text-gray-600
-                .pointer-events-none.absolute.inset-y-0.left-0.pl-3.flex.items-center
-                  / Heroicon name: solid/search
-                  %svg.h-5.w-5{"aria-hidden" => "true", :fill => "currentColor", :viewbox => "0 0 20 20", :xmlns => "http://www.w3.org/2000/svg"}
-                    %path{"clip-rule" => "evenodd", :d => "M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z", "fill-rule" => "evenodd"}
-                = f.search_field :title_or_slug_or_excerpt_cont, class: 'block w-full text-white bg-white bg-opacity-20 py-2 pl-10 pr-3 border border-transparent rounded-md leading-5 focus:text-gray-900 placeholder-white focus:outline-none focus:bg-opacity-100 focus:border-transparent focus:placeholder-gray-500 focus:ring-0 sm:text-sm'
+          - if @q
+            = search_form_for @q do |f|
+              .max-w-xs.mx-auto.w-full.lg:max-w-md
+                = f.label :title_or_slug_or_excerpt_cont, class: 'sr-only'
+                .relative.text-white.focus-within:text-gray-600
+                  .pointer-events-none.absolute.inset-y-0.left-0.pl-3.flex.items-center
+                    / Heroicon name: solid/search
+                    %svg.h-5.w-5{"aria-hidden" => "true", :fill => "currentColor", :viewbox => "0 0 20 20", :xmlns => "http://www.w3.org/2000/svg"}
+                      %path{"clip-rule" => "evenodd", :d => "M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z", "fill-rule" => "evenodd"}
+                  = f.search_field :title_or_slug_or_excerpt_cont, class: 'block w-full text-white bg-white bg-opacity-20 py-2 pl-10 pr-3 border border-transparent rounded-md leading-5 focus:text-gray-900 placeholder-white focus:outline-none focus:bg-opacity-100 focus:border-transparent focus:placeholder-gray-500 focus:ring-0 sm:text-sm'
       / Menu button
       .absolute.right-0.flex-shrink-0.lg:hidden
         / Mobile menu button

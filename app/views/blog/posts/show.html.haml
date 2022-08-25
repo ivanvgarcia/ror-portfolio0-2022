@@ -1,11 +1,14 @@
-
-.relative.pb-16.bg-white.overflow-hidden
-  .bg-gray-700
-    .max-w-7xl.mx-auto.py-16.px-4.sm:py-24.sm:px-6.lg:px-8.lg:flex.lg:justify-between
-      .max-w-xl
-        %h2.text-4xl.tracking-tight.font-bold.text-white.sm:text-5xl.sm:tracking-tight.lg:text-6xl.lg:tracking-tight= @post.title
-        %p.mt-5.text-xl.text-gray-400= @post.excerpt
-
-  .relative.px-4.sm:px-6.lg:px-8
-    .mt-6.prose.prose-indigo.prose-lg.text-gray-500.mx-auto
-      = @post.body
+.lg:overflow-hidden.bg-gradient-to-r.from-gray-700.to-gray-800
+  .mx-auto.max-w-7xl.lg:px-8
+    .lg:grid.lg:grid-cols-2.lg:gap-8
+      .mx-auto.max-w-md.px-4.sm:max-w-2xl.sm:px-6.sm:text-center.lg:px-0.lg:text-left.lg:flex.lg:items-center
+        .lg:py-24
+          %h1.mt-4.text-4xl.tracking-tight.font-bold.text-white.sm:mt-5.sm:text-6xl.sm:tracking-tight.lg:mt-6.xl:text-6xl.xl:tracking-tight
+            %span.block= @post.title
+          %p.mt-3.text-base.text-white.sm:mt-5.sm:text-xl.lg:text-lg.xl:text-xl= @post.excerpt
+      .mt-12.-mb-16.sm:-mb-48.lg:m-0.lg:relative
+        .mx-auto.max-w-md.px-4.sm:max-w-2xl.sm:px-6.lg:max-w-none.lg:px-0
+          = image_tag(@post.image, class: 'w-full lg:absolute left-0 top-0')
+.relative.px-4.sm:px-6.lg:px-8
+  .mt-6.prose.prose-indigo.prose-lg.text-gray-500.mx-auto
+    = @post.body

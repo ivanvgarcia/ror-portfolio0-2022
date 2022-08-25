@@ -11,9 +11,9 @@ module Admin
     # end
 
 
-    # def find_resource(param)
-    #   Post.find_by!(slug: param)
-    # end
+    def find_resource(param)
+      Post.find_by!(slug: param)
+    end
 
     # The result of this lookup will be available as `requested_resource`
 

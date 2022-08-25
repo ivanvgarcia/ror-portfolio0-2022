@@ -45,25 +45,26 @@
               = render 'shared/empty_section', resource: Post, link: new_post_path, message: { title: 'No posts yet', body: 'Create a post to start', button: 'Create Post' }
             - else
               - @posts.each do |post|
-                %div.py-8.px-4
-                  %div
-                    %a.inline-block{:href => "#"}
-                      %span.inline-flex.items-center.px-3.rounded-full.text-sm.font-medium.bg-indigo-100.text-indigo-800{:class => "py-0.5"} Article
-                  %a.block.mt-4{:href => "#"}
-                    %p.text-xl.font-semibold.text-gray-900= post.title
-                    %p.mt-3.text-base.text-gray-500= post.excerpt
-                  .mt-6.flex.items-center
-                    .flex-shrink-0
-                      %a{:href => "#"}
-                        %span.sr-only= post.author.name
-                        = image_tag post.author.avatar, class: 'h-10 w-10 rounded-full'
-                    .ml-3
-                      %p.text-sm.font-medium.text-gray-900
-                        %a{:href => "#"}= post.author.name
-                      .flex.space-x-1.text-sm.text-gray-500
-                        %time{:datetime => "2020-03-16"}= post.created_at.to_date.to_formatted_s(:long)
-                        %span{"aria-hidden" => "true"} ·
-                        %span= pluralize(post.reading_time, 'minute')
+                = link_to post_path(post) do
+                  %div.py-8.px-4.cursor-pointer.hover:bg-gray-100
+                    %div
+                      %div.inline-block
+                        %span.inline-flex.items-center.px-3.rounded-full.text-sm.font-medium.bg-indigo-100.text-indigo-800{:class => "py-0.5"} Article
+                    %div.block.mt-4
+                      %p.text-xl.font-semibold.text-gray-900= post.title
+                      %p.mt-3.text-base.text-gray-500= post.excerpt
+                    .mt-6.flex.items-center
+                      .flex-shrink-0
+                        %div
+                          %span.sr-only= post.author.name
+                          = image_tag post.author.avatar, class: 'h-10 w-10 rounded-full'
+                      .ml-3
+                        %p.text-sm.font-medium.text-gray-900
+                          %div= post.author.name
+                        .flex.space-x-1.text-sm.text-gray-500
+                          %time{:datetime => "2020-03-16"}= post.created_at.to_date.to_formatted_s(:long)
+                          %span{"aria-hidden" => "true"} ·
+                          %span= pluralize(post.reading_time, 'minute')
 
             = paginate @posts
 

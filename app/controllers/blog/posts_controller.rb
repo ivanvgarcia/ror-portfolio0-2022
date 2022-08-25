@@ -1,7 +1,7 @@
 module Blog
   class PostsController < Blog::BaseController
-    load_and_authorize_resource :find_by => :slug, except: [:index]
     before_action  :set_search, only: [:index, :new, :show]
+    load_and_authorize_resource :find_by => :slug, except: [:index]
 
     def index
       @recent_users = User.last(4)
@@ -38,7 +38,8 @@ module Blog
 
     def set_search
       @q = Post.ransack(params[:q])
-      @posts = @q.result.includes([:author, :rich_text_body]).page(params[:page])
+      @posts = @q.result.accessible_by(current_ability)
+      @posts = @posts.includes([:author, :rich_text_body]).page(params[:page])
     end
 
     def post_params

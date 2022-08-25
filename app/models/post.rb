@@ -35,7 +35,9 @@ class Post < ApplicationRecord
 
   validates_length_of :excerpt, maximum: 150
 
-  scope :published, -> { where(draft: false) }
+  scope :published, -> { where(draft: false).order(created_at: :desc) }
+
+  scope :latest_published, -> { where(draft: false).order(created_at: :desc).limit(3) }
 
   def reading_time
     return 0 if body.blank?

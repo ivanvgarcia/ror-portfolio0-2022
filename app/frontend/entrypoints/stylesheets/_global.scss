@@ -146,3 +146,7 @@ button {
 .field_with_errors .input {
   @apply border-red-500;
 }
+
+.trix-content pre {
+  color: #000;
+}

@@ -5,7 +5,7 @@ class Ability
 
   def initialize(user)
 
-    can :read, Post, draft: false
+    can :index, Post, Post.published
 
     return unless user.present?
 
