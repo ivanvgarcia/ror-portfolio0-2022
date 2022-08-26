@@ -7,6 +7,8 @@ class Ability
 
     can :index, Post, Post.published
 
+    can :show, Post
+
     return unless user.present?
 
     can :manage, :all if user.admin?
